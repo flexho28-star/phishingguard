@@ -153,6 +153,8 @@ export const EmailAnalyzer: React.FC<EmailAnalyzerProps> = ({ onScanCompleted })
     }, 250);
   };
 
+  const API_URL = import.meta.env.VITE_API_URL as string;
+
   const handleEmailScan = async () => {
     if (!inputText.trim() && !file) {
       setError('Please enter email text or upload a file to scan.');
@@ -165,16 +167,15 @@ export const EmailAnalyzer: React.FC<EmailAnalyzerProps> = ({ onScanCompleted })
 
     try {
       let response;
-      const apiBase = 'http://localhost:8000';
 
       if (file) {
         const formData = new FormData();
         formData.append('file', file);
-        response = await axios.post<PredictResponse>(`${apiBase}/api/upload`, formData, {
+        response = await axios.post<PredictResponse>(`${API_URL}/api/upload`, formData, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
       } else {
-        response = await axios.post<PredictResponse>(`${apiBase}/api/predict`, {
+        response = await axios.post<PredictResponse>(`${API_URL}/api/predict`, {
           text: inputText
         });
       }
@@ -204,8 +205,7 @@ export const EmailAnalyzer: React.FC<EmailAnalyzerProps> = ({ onScanCompleted })
     setUrlResult(null);
 
     try {
-      const apiBase = 'http://localhost:8000';
-      const response = await axios.post<UrlAnalyzeResponse>(`${apiBase}/api/analyze-url`, {
+      const response = await axios.post<UrlAnalyzeResponse>(`${API_URL}/api/analyze-url`, {
         url: inputUrl.trim()
       });
 

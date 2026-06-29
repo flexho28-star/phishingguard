@@ -121,10 +121,12 @@ export default function App() {
     setTimeout(() => setToast(null), 4000);
   };
 
+  const API_URL = import.meta.env.VITE_API_URL as string;
+
   const fetchStats = async () => {
     setLoadingStats(true);
     try {
-      const response = await axios.get<StatsData>('http://localhost:8000/api/stats');
+      const response = await axios.get<StatsData>(`${API_URL}/api/stats`);
       setStats(response.data);
     } catch (err) {
       console.error('Failed to fetch stats:', err);

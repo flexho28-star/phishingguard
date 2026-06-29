@@ -110,7 +110,7 @@ A production-ready, highly aesthetic cybersecurity application that classifies e
    ```bash
    uvicorn app.main:app --reload --port 8000
    ```
-   The API will be available at `http://localhost:8000`. You can view the interactive Swagger documentation at `http://localhost:8000/docs`.
+   The API will be available at `https://phishingguard-lncj.onrender.com`. You can view the interactive Swagger documentation at `https://phishingguard-lncj.onrender.com/docs`.
 
 ---
 
@@ -128,7 +128,7 @@ A production-ready, highly aesthetic cybersecurity application that classifies e
    ```bash
    npm run dev
    ```
-   The web application will be available at `http://localhost:5173`.
+   The web application will be available at `https://phishingguard-lncj.onrender.com`.
 
 ---
 
@@ -140,17 +140,11 @@ To run the entire application in a single production-ready container (where Fast
    ```bash
    docker-compose up --build
    ```
-2. Open your browser and navigate to `http://localhost:8000`.
+2. Open your browser and navigate to `https://phishingguard-lncj.onrender.com`.
 
 ---
 
-## 🧩 Browser Extension Setup
 
-1. Open Google Chrome (or any Chromium-based browser) and navigate to `chrome://extensions/`.
-2. Enable **Developer mode** using the toggle in the top-right corner.
-3. Click **Load unpacked** in the top-left corner.
-4. Select the `static/extension` folder inside this project.
-5. **Usage**: Highlight any text on a web page (e.g. Gmail), right-click, and select **"Scan selection for Phishing"**. Then click the extension icon in your toolbar to see the AI threat report!
 
 ---
 
