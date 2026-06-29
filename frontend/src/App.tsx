@@ -3,7 +3,6 @@ import {
   Shield, 
   Activity, 
   List, 
-  Puzzle, 
   Menu, 
   X
 } from 'lucide-react';
@@ -11,7 +10,6 @@ import axios from 'axios';
 import { Dashboard } from './components/Dashboard';
 import { EmailAnalyzer } from './components/EmailAnalyzer';
 import { History } from './components/History';
-import { BrowserExtensionInfo } from './components/BrowserExtensionInfo';
 
 
 interface KeywordImportance {
@@ -109,7 +107,7 @@ interface StatsData {
 }
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'analyzer' | 'history' | 'extension'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'analyzer' | 'history'>('dashboard');
   const [stats, setStats] = useState<StatsData | null>(null);
   const [loadingStats, setLoadingStats] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -155,7 +153,6 @@ export default function App() {
     { id: 'dashboard', label: 'Dashboard', icon: Activity },
     { id: 'analyzer', label: 'Threat Analyzer', icon: Shield },
     { id: 'history', label: 'Incident Logs', icon: List },
-    { id: 'extension', label: 'Browser Extension', icon: Puzzle },
   ] as const;
 
 
@@ -288,9 +285,7 @@ export default function App() {
               onScanSelected={() => {}} 
             />
           )}
-          {activeTab === 'extension' && (
-            <BrowserExtensionInfo />
-          )}
+
         </main>
       </div>
     </div>

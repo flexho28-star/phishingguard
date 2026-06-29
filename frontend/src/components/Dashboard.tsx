@@ -364,6 +364,12 @@ export const Dashboard: React.FC<DashboardProps> = ({ stats, loading, onRefresh,
           </table>
         </div>
       </div>
+
+      {/* Footer copyright */}
+      <div className="pt-6 pb-2 border-t border-slate-850/40 text-center font-mono text-[10px] text-slate-500 flex flex-col md:flex-row justify-between items-center gap-2">
+        <span>© 2026 PHISH-DEFENSE SECURITY INC. CO-FOUNDED BY HARSHAN SELIYAN</span>
+        <span className="text-slate-600">ALL THREAT SIGNATURES ARE SUBJECT TO CONTINUOUS AI AUDITING</span>
+      </div>
     </div>
   );
 };
